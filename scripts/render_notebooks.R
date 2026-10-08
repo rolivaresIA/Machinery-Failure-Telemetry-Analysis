@@ -25,7 +25,7 @@ for (f in notebooks) {
   out <- paste0(sub("^scripts/", "", tools::file_path_sans_ext(f)), ".md")
   knitr::opts_chunk$set(
     fig.path = paste0("figures/", tools::file_path_sans_ext(out), "/"),
-    dev = "png", dpi = 110, comment = "##", fig.width = 8, fig.height = 4.5
+    dev = "png", dpi = 110, comment = "##", error = FALSE, fig.width = 8, fig.height = 4.5
   )
   rmd <- knitr::spin(f, knit = FALSE)
   knitr::knit(rmd, output = out, quiet = TRUE)
